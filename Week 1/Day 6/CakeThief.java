@@ -20,6 +20,7 @@ public class CakeThief {
     public static long maxDuffelBagValue(CakeType[] cakeTypes, int weightCapacity) {
         int[] result=new int[weightCapacity+1];
         for(int i=0;i<=weightCapacity;i++){
+            for(int j=0;j<cakeTypes.length;j++){
                 if(cakeTypes[j].weight==0 && cakeTypes[j].value>0)throw new IllegalArgumentException();
                 if(cakeTypes[j].weight<=i)
                 result[i]=Math.max(result[i],cakeTypes[j].value+result[i-cakeTypes[j].weight]);
